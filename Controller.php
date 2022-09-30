@@ -14,15 +14,17 @@ class Controller extends ElectronicItem
     /**
      * @return void
      */
-    public function getWired(){
-        $this->wired;
+    public function getWired()
+    {
+        return $this->wired;
     }
 
     /**
      * @param $wired
      * @return void
      */
-    public function setWired($wired){
+    public function setWired($wired)
+    {
         $this->wired = $wired;
     }
 }
