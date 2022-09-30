@@ -6,6 +6,6 @@ class Microwave extends ElectronicItem
     {
         $this->maxNumOfExtras = 0;
         $this->setExtras(0);
-        $this->type = 'microwave';
+        $this->type = self::ELECTRONIC_ITEM_MICROWAVE;
     }
 }

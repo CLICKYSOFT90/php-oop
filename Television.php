@@ -8,7 +8,7 @@ class Television extends ElectronicItem
     {
         $this->maxNumOfExtras = -1;
         $this->setExtras($this->remoteController);
-        $this->type = 'television';
+        $this->type = self::ELECTRONIC_ITEM_TELEVISION;
     }
 
     /**

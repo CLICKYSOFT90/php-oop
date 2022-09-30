@@ -23,9 +23,15 @@ class ElectronicItems
      */
     public function getSortedItemsByPrice()
     {
-        $sorted_list = array();
-        foreach($this->items as $item){
-            $sorted_list[$item['price']] = $item;
+        $sorted_list = $this->items;
+        for($i=0; $i < count($sorted_list); $i++){
+            for($j=0; $j < count($sorted_list) - 1; $j++){
+                if($sorted_list[$j]['price'] < $sorted_list[$j+1]['price'] ){
+                    $temp = $sorted_list[$j];
+                    $sorted_list[$j] = $sorted_list[$j+1];
+                    $sorted_list[$j+1] = $temp;
+                }
+            }
         }
         return $sorted_list;
     }
@@ -35,12 +41,19 @@ class ElectronicItems
      */
     public function getSortedItemsByType()
     {
-        $the_list = array();
         $sortedList = $this->items;
-        foreach($sortedList as $index => $value){
-            $the_list[$index] = $value['type'];
+        for ($i=0; $i < count($sortedList); $i++)
+        {
+            for ($j=0; $j < count($sortedList) -1; $j++)
+            {
+                if (strcmp($sortedList[$j]['type'], $sortedList[$j+1]['type']) > 0)
+                {
+                    $temp =  $sortedList[$j];
+                    $sortedList[$j] = $sortedList[$j+1];
+                    $sortedList[$j+1] =  $temp;
+                }
+            }
         }
-        array_multisort($the_list, SORT_ASC, $sortedList);
         return $sortedList;
     }
 
