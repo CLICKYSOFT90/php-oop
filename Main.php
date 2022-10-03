@@ -35,13 +35,7 @@ class Main
         $electronics_items->addItemToList($tv1);
         $electronics_items->addItemToList($tv2);
         $electronics_items->addItemToList($console);
-
-        echo "TV1 Price\t\t:\t" . $tv1->price . "\n";
-        echo "TV2 Price\t\t:\t" . $tv2->price . "\n";
-        echo "Console Price\t:\t" . $console->price . "\n";
-        echo "Total Price\t\t:\t". $electronics_items->getTotalPrice(). "\n";
-        echo "==================================================\n";
-
+        echo "QUESTION -1: \n============\n";
         echo "Item List: \n";
         echo str_pad( "TYPE", 20 ) ."\t\t". str_pad("EXTRAS", 20) ."\t\tPRICE\n";
         foreach($electronics_items->getItems() as $item){
@@ -63,6 +57,14 @@ class Main
             echo str_pad( $item['type'], 20 ) . "\t\t". str_pad($item['item']->extras . ' controllers', 20) . "\t\t" . '$'. $item['price'] . "\n";
         }
         echo "\n--------------------------------------------------\n";
+        echo "QUESTION -2: \n============\n";
+        echo "TV1 Price\t\t:\t" . $tv1->price . "\n";
+        echo "TV2 Price\t\t:\t" . $tv2->price . "\n";
+        echo "Console Price\t:\t" . $console->price . "\n----------------------\n";
+        echo "Total Price\t\t:\t". $electronics_items->getTotalPrice(). "\n";
+        echo "---------------------------------------------------\n";
+        echo "--------------------*END*--------------------------\n";
+
     }
 }
 new Main();
