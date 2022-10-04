@@ -2,28 +2,25 @@
 
 class Television extends ElectronicItem
 {
-    private $remoteController = 0;
+	private $controller = array();
 
-    public function __construct()
-    {
-        $this->maxNumOfExtras = -1;
-        $this->setExtras($this->remoteController);
-        $this->type = self::ELECTRONIC_ITEM_TELEVISION;
-    }
+	public function __construct()
+	{
+		$this->maxNumOfExtras = -1;
+		$this->setExtras(count($this->controller));
+		$this->type = self::ELECTRONIC_ITEM_TELEVISION;
+	}
 
-    /**
-     * @return int
-     */
-    public function getRemoteController(){
-        return $this->remoteController;
-    }
-
-    /**
-     * @param $remoteController
-     * @return void
-     */
-    public function setRemoteController($remoteController){
-        $this->remoteController = $remoteController;
-        $this->setExtras($this->remoteController);
-    }
+	/**
+	 * @param Controller $item
+	 * @return void
+	 */
+	public function addController(Controller $item)
+	{
+		if ($item->getType() != self::ELECTRONIC_ITEM_CONTROLLER) {
+			return;
+		}
+		array_push($this->controller, $item);
+		$this->setExtras(count($this->controller));
+	}
 }

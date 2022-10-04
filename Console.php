@@ -2,33 +2,26 @@
 
 class Console extends ElectronicItem
 {
-    private $remoteController = 2;
-    private $wiredController = 2;
+    private $controller = array();
 
     public function __construct()
     {
         $this->maxNumOfExtras = 4;
-        $totalExtras = $this->remoteController + $this->wiredController;
-        $this->setExtras($totalExtras);
+        $this->setExtras(count($this->controller));
         $this->type = self::ELECTRONIC_ITEM_CONSOLE;
     }
 
-    /**
-     * @return int
-     */
-    public function getRemoteController()
-    {
-        return $this->remoteController;
-    }
-
-    /**
-     * @param $remoteController
-     * @return void
-     */
-    public function setRemoteController($remoteController)
-    {
-        $this->remoteController = $remoteController;
-    }
+	/**
+	 * @param Controller $item
+	 * @return void
+	 */
+	public function addController(Controller $item){
+		if ($item->getType() != self::ELECTRONIC_ITEM_CONTROLLER) {
+			return;
+		}
+		array_push($this->controller, $item);
+		$this->setExtras(count($this->controller));
+	}
 
     /**
      * @return int
