@@ -1,10 +1,25 @@
 <?php
+/**
+ * File: ElectronicItem.php
+ * 
+ * @category Main
+ * @package  OOP_PROJECT
+ * @author   Khurram Nabeel <khurram.nabeel@gmail.com>
+ * @license  GPL Version 3.0 (http://www.gnu.org/licenses/gpl)
+ * @link     http://www.symfony-project.org/
+ */
 
+ /**
+  * Class ElectronicItem
+  * 
+  * @category Main
+  * @package  OOP_PROJECT
+  * @author   Khurram Nabeel <khurram.nabeel@gmail.com>
+  * @license  GPL Version 3.0 (http://www.gnu.org/licenses/gpl)
+  * @link     http://www.symfony-project.org/
+  */
 class ElectronicItem
 {
-    /**
-     * @var $maxNumOfExtras
-     */
     public $maxNumOfExtras;
     public $price;
     public $extras;
@@ -22,67 +37,82 @@ class ElectronicItem
         self::ELECTRONIC_ITEM_CONTROLLER,
     ];
     /**
-     * @return bool
      * Check if the electronic item reached the limit of extras.
+     * 
+     * @return bool
      */
-    public function maxExtras(){
-        if( ($this->extras + 1) > $this->maxNumOfExtras){
+    public function maxExtras()
+    {
+        if (($this->extras + 1) > $this->maxNumOfExtras) {
             return false;
         }
         return true;
     }
 
     /**
-     * @param $extras
+     * Sets extras
+     * 
+     * @param $extras Controller
+     * 
      * @return void
      */
-    public function setExtras($extras){
-        if($this->maxExtras() && $extras > $this->maxNumOfExtras){
+    public function setExtras($extras)
+    {
+        if ($this->maxExtras() && $extras > $this->maxNumOfExtras) {
             return;
         }
         $this->extras = $extras;
     }
 
     /**
+     * Returns extras
+     * 
      * @return mixed
      */
-    public function getExtras(){
+    public function getExtras()
+    {
         return $this->extras;
     }
 
     /**
+     * Get maximum number of extras
+     * 
      * @return mixed
      */
-    public function getMaxNumOfExtras(){
+    public function getMaxNumOfExtras()
+    {
         return $this->maxNumOfExtras;
     }
 
     /**
+     * Set Maximum number of extras
+     * 
+     * @param $maxNumberOfExtras int
+     * 
      * @return void
      */
-    public function setMaxNumOfExtras($maxNumberOfExtras){
+    public function setMaxNumOfExtras($maxNumberOfExtras)
+    {
         $this->maxNumOfExtras = $maxNumberOfExtras;
     }
 
     /**
-     * @return void
+     * Gets Electronic item price.
+     * 
+     * @return mixed
      */
-    public function getPrice(){
+    public function getPrice()
+    {
         return $this->price;
     }
 
     /**
-     * @param $type
-     * @return void
-     */
-    public function setType($type){
-        $this->type = $type;
-    }
-
-    /**
+     * Gets Electronic item type.
+     * 
      * @return mixed
      */
-    public function getType(){
+    public function getType()
+    {
         return $this->type;
     }
 }
